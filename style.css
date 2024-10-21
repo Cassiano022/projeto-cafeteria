@@ -309,18 +309,22 @@ section {
         
     }
 
+    .contant {
+        flex-direction: column;
+    }
+
    
     .content h3 {
-        font-size: 2.5rem;
+        font-size: 3.8rem;
         position: relative;
         
         /* Ajustando tamanho do título */
     }
 
     .content p {
-        font-size: 2.4rem;
+        font-size: 2.1rem;
         position: relative;
-        
+       
         /* Reduzindo o tamanho do parágrafo */
     }
 
