@@ -298,6 +298,7 @@ section {
 
     .title {
         font-size: 3rem;
+        align-items: center;
     }
 
     .navbar {
@@ -315,6 +316,7 @@ section {
 
     .box-container {
         grid-template-columns: 1fr;
+        align-items: center;
     }
 
     .map-responsive {
