@@ -151,18 +151,34 @@ section {
     display: flex;
     align-items: center;
     background-color: var(--black);
+    width: 100%;
+    max-width: 100%;
     gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
 
+.about .row > div {
+    width: 50%; /* Ensures equal width for image and content */
+    max-width: 50%;
+}
+
+.about .row > div img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .about .row .content {
     padding: 2rem;
-
+    width: 100%;
+    max-width: 100%;
 }
 
 .about .row .content h3 {
     font-size: 2.8rem;
     color: #fff;
+    width: 100%;
 }
 
 .about .row .content p {
@@ -170,6 +186,7 @@ section {
     color: #fff;
     padding: 1rem 0;
     line-height: 1.8;
+    width: 100%;
 }
 
 .box-container {
@@ -355,28 +372,23 @@ section {
 /* Apenas uma coluna para caixas */
     }
     .about .row {
-        display: flex;
-        align-items: center;
-        background-color: var(--black);
-        gap: 1.5rem;
-    
+        flex-direction: column;
+        gap: 0;
     }
-    
+
+    .about .row > div {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about .row > div img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+    }
+
     .about .row .content {
-        padding: 2rem;
-    
-    }
-    
-    .about .row .content h3 {
-        font-size: 2.8rem;
-        color: #fff;
-    }
-    
-    .about .row .content p {
-        font-size: 1.8rem;
-        color: #fff;
-        padding: 1rem 0;
-        line-height: 1.8;
+        padding: 1rem;
     }
 
     .menu .box-container .box {
