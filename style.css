@@ -3,80 +3,85 @@
     --black: #13131a;
     --bg: #010103;
     --border: 0.1rem solid rgba(255, 255, 255, 0.3);
-    font-size: 10px
+    font-size: 10px; /* Base para rem */
 }
-
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    font-family: "Roboto", serif;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
 }
 
-html, body {
+html,
+body {
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    height: 100%;
+    overflow-x: hidden;
+    background-color: var(--bg);
 }
 
 body {
-    background-color: var(--bg);
-    min-height: 100vh; /* Ensures body takes full viewport height */
-    width: 100%;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 section {
     padding: 3rem 2rem;
     margin: 0 auto;
     max-width: 1200px;
+    width: 100%;
+    flex: 1 0 auto; /* Permite que as seções cresçam e ocupem o espaço disponível */
 }
 
 .header {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     z-index: 99;
     border-bottom: var(--border);
     background-color: var(--bg);
+    padding: 1.5rem 0;
 }
 
 .header section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+}
 
+.header .logo img {
+    height: 6rem; /* Ajuste o tamanho do logo conforme necessário */
 }
 
 .navbar a {
     margin: 0 1rem;
     font-size: 1.8rem;
     color: #fff;
+    text-decoration: none;
 }
 
 .navbar a:hover {
     color: var(--main-color);
     border-bottom: 0.1rem solid var(--main-color);
     padding-bottom: 0.5rem;
-    font-size: 2.5rem;
 }
 
 .icons img {
-    margin: 1rem;
+    margin: 0 0.5rem;
     cursor: pointer;
 }
 
 .icons img:hover {
-    width: 40px;
-    height: 40px;
-    color: var(--main-color);
-    background-color: var(--main-color);
+    transform: scale(1.2); /* Aumenta o tamanho dos ícones no hover */
 }
-
 
 .btn {
     background: var(--main-color);
@@ -90,37 +95,35 @@ section {
 
 .btn:hover {
     letter-spacing: 0.1rem;
-
 }
 
-
 .home-container {
-    background: url("./img/imagem-fundo.jpg");
-    background-position: center;
-    background-size: cover;
+    background: url("./img/imagem-fundo.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .home-container section {
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
+    text-align: center;
 }
 
 .content {
-    max-width: 60rem;
+    max-width: 70rem;
+    padding: 2rem;
 }
 
 .content h3 {
     color: #fff;
-    font-size: 2.8rem;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
 }
 
 .content p {
     color: #fff;
     font-size: 1.8rem;
-    font-weight: 100;
-    line-height: 1.5;
-    padding: 1rem 0;
+    line-height: 1.6;
 }
 
 .title {
@@ -138,15 +141,23 @@ section {
 
 .about .row {
     display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
     align-items: center;
     background-color: var(--black);
     gap: 1.5rem;
+}
 
+.about .row div {
+    flex: 1 1 30rem; /* Distribui o espaço igualmente entre as divs */
+}
+
+.about .row img {
+    width: 100%; /* Garante que a imagem seja responsiva */
+    display: block;
 }
 
 .about .row .content {
     padding: 2rem;
-
 }
 
 .about .row .content h3 {
@@ -163,14 +174,14 @@ section {
 
 .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* Cria colunas responsivas */
     gap: 1.5rem;
 }
 
 .menu .box-container .box {
     text-align: center;
     border: var(--border);
-    padding: 5rem;
+    padding: 3rem;
     cursor: pointer;
 }
 
@@ -186,7 +197,6 @@ section {
     color: #fff;
     font-size: 2rem;
     padding: 1rem 0;
-
 }
 
 .menu .box-container .box .price {
@@ -228,7 +238,7 @@ section {
 .review .box-container .box .user {
     height: 15rem;
     width: 15rem;
-    border-radius: 45%;
+    border-radius: 50%;
 }
 
 .address {
@@ -237,148 +247,44 @@ section {
     flex-direction: column;
 }
 
+.map-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 para o mapa */
+    height: 0;
+    overflow: hidden;
+    width: 100%; /* Garante que o mapa ocupe a largura total */
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .footer {
     text-align: center;
-
+    padding: 2rem 0;
 }
 
 .footer .share {
     padding: 1rem 0;
-
 }
 
 .footer .share img {
-    margin: 0.3rem;
+    margin: 0 0.5rem;
     cursor: pointer;
     border-radius: 50%;
-    padding: 1rem;
+    padding: 0.8rem;
+    background-color: #333; /* Fundo escuro para os ícones */
 }
 
 .footer .share img:hover {
     background-color: var(--main-color);
 }
 
-
-.footer .share h2 {
-    color: #d3ad7f;
-    font-size: 3rem;
+.footer .share .title {
+    margin-top: 1rem;
 }
 
-/* Estilo para telas menores que 480px (celular) */
-@media (max-width: 480px) {
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html, body {
-        width: 100vw;
-        height: 100vh;
-        overflow-x: hidden; /* Evita rolagem horizontal */
-    }
-
-    :root {
-        font-size: 8px; /* Reduzindo a fonte base */
-    }
-
-    section {
-        width: 100vw;
-        height: 100vh;
-        padding: 1rem; /* Ajustando o padding */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .header {
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-    }
-
-    .navbar a {
-        font-size: 1.5rem;
-        margin: 0.5rem;
-    }
-
-    .icons img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .home-container section {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .content h3 {
-        font-size: 2.8rem;
-        margin-top: 50px; /* Ajustando espaço superior */
-    }
-
-    .content p {
-        font-size: 1.8rem;
-    }
-
-    .box-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about .row {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--black);
-        padding: 2rem;
-    }
-
-    .about .row .content {
-        width: 100%;
-        text-align: center;
-    }
-
-    .menu .box-container .box,
-    .review .box-container .box {
-        width: 100%;
-        padding: 2rem;
-    }
-
-    .footer {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .footer .share h2 {
-        font-size: 2.5rem;
-    }
-}
